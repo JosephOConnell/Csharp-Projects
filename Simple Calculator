@@ -1,0 +1,76 @@
+using System;
+
+namespace Calculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userInput;
+            int a;
+            int b;
+
+            Console.WriteLine("\t\t\tCalculator\n");
+
+        start:
+
+            Console.Write("What Calculation would you like to do???\n" +
+                "Addition: + \n" +
+                "Subtraction: - \n" +
+                "Multiplication: *\n" +
+                "Division: / \n");
+            userInput = Console.ReadLine();
+
+            if(userInput == "+")
+            {
+                Console.Write("First Number: ");
+                a = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Second Number: ");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(a + "+" + b + "=" + (a + b));
+            }
+
+            else if (userInput == "-")
+            {
+                Console.Write("First Number: ");
+                a = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Second Number: ");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(a + "-" + b + "=" + (a - b));
+            }
+
+            else if (userInput == "/")
+            {
+                Console.Write("First Number: ");
+                a = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Second Number: ");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(a + "/" + b + "=" + (a / b));
+            }
+
+            else if (userInput == "*")
+            {
+                Console.Write("First Number: ");
+                a = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Second Number: ");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(a + "*" + b + "=" + (a * b));
+            }
+
+            else
+            {
+                Console.WriteLine("Invalid Input");
+            }
+
+            goto start;
+        }
+    }
+}
