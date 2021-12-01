@@ -1,0 +1,131 @@
+using System;
+
+namespace Rock_Paper_Scissors
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string inputPlayer, inputCPU;
+            int randomInt;
+
+            bool playAgain = true;
+
+            while (playAgain)
+            {
+
+            int scorePlayer = 0, scoreCPU = 0;
+
+            DateTime now = DateTime.Now;
+            Console.WriteLine(now);
+            
+            Console.WriteLine("\n\t\t\t\t\t\tROCK, PAPER, SCISSORS\n");
+                while (scorePlayer < 3 && scoreCPU < 3)
+                {
+                    Console.Write("\nChoose Between Rock, Paper and Scissors:    ");
+                    inputPlayer = Console.ReadLine();
+
+                    Random rnd = new Random();
+                    randomInt = rnd.Next(1, 4);
+
+                    switch (randomInt)
+                    {
+                        case 1:
+                            inputCPU = "Rock";
+                            Console.WriteLine("\nComputer Chose ROCK");
+
+                            if (inputPlayer == "Paper")
+                            {
+                                Console.WriteLine("You Chose PAPER. \nYou WIN");
+                                scorePlayer++;
+                            }
+                            else if (inputPlayer == "Scissors")
+                            {
+                                Console.WriteLine("You Chose Scissors. \nYou LOSE");
+                                scoreCPU++;
+                            }
+                            else if (inputPlayer == "Rock")
+                            {
+                                Console.WriteLine("You Chose Rock. \nIts a DRAW");
+                            }
+
+                            break;
+
+                        case 2:
+                            inputCPU = "Scissors";
+                            Console.WriteLine("\nComputer Chose Scissors");
+
+                            if (inputPlayer == "Paper")
+                            {
+                                Console.WriteLine("You Chose PAPER. \nYou LOSE");
+                                scoreCPU++;
+                            }
+                            else if (inputPlayer == "Scissors")
+                            {
+                                Console.WriteLine("You Chose Scissors. \nIts a DRAW");
+                            }
+                            else if (inputPlayer == "Rock")
+                            {
+                                Console.WriteLine("You Chose Rock. \nYou WIN");
+                                scorePlayer++;
+                            }
+                            break;
+
+                        case 3:
+                            inputCPU = "Paper";
+                            Console.WriteLine("\nComputer Chose Paper");
+
+                            if (inputPlayer == "Paper")
+                            {
+                                Console.WriteLine("You Chose PAPER. \nIts a DRAW");
+                            }
+                            else if (inputPlayer == "Scissors")
+                            {
+                                Console.WriteLine("You Chose Scissors. \nYou WIN");
+                                scorePlayer++;
+                            }
+                            else if (inputPlayer == "Rock")
+                            {
+                                Console.WriteLine("You Chose Rock. \nYou LOSE");
+                                scoreCPU++;
+                            }
+
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid Choice.\n");
+                            break;
+                    }
+                    Console.WriteLine("Computer Score: " + scoreCPU + "\tPlayers Score: " + scorePlayer + "\n\n");
+
+                    if (scorePlayer == 3)
+                    {
+                        Console.WriteLine("YOU WON");
+                        Console.ReadLine();
+                    }
+                    else if (scoreCPU == 3)
+                    {
+                        Console.WriteLine("UNLUCKY YOU LOST");
+                        Console.ReadLine();
+                    }
+                }
+                    Console.WriteLine("Do You Wanna Play Again?? y/n");
+                    string loop = Console.ReadLine();
+                    if (loop == "y")
+                    {
+                        playAgain = true;
+                    Console.Clear();
+                    }
+                    else if (loop == "n")
+                    {
+                        playAgain = false;
+                    }
+                    else
+                    {
+
+                    }
+                
+            }
+        }
+    }
+}
