@@ -1,0 +1,82 @@
+using System;
+
+namespace Dice_Game
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool playAgain = true;
+
+            Console.WriteLine("!Hello World!");
+            Console.WriteLine("\tDICE\n");
+            Console.WriteLine("Highest Score Wins.");
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+
+            while (playAgain)
+            {
+                int randomNum1, randomNum2, randomNum3, randomNum4;
+
+                Random randomNumGen = new Random();
+                randomNum1 = randomNumGen.Next(1, 6);
+                randomNum2 = randomNumGen.Next(1, 6);
+                randomNum3 = randomNumGen.Next(1, 6);
+                randomNum4 = randomNumGen.Next(1, 6);
+
+                int playerScore = 0, cpuScore = 0;
+
+                Console.WriteLine("Player 1's turn: ");
+                Console.WriteLine("player 1 Rolled: " + randomNum1 + " & " + randomNum2);
+                Console.WriteLine("Player 1: " + (randomNum1 + randomNum2) + "\n");
+                playerScore = (randomNum1 + randomNum2);
+
+                Console.ReadKey();
+                Console.WriteLine("CPU's's turn: ");
+                Console.WriteLine("CPU Rolled: " + randomNum3 + " & " + randomNum4);
+                Console.WriteLine("CPU: " + (randomNum3 + randomNum4) + "\n");
+                cpuScore = (randomNum3 + randomNum4);
+
+                Console.ReadKey();
+                Console.WriteLine("\n\t\tPlayers Score: " + playerScore + "\t\tCPU's Score: " + cpuScore + "\n\n");
+
+                if (playerScore > cpuScore)
+                {
+                    Console.WriteLine("You Win");
+                    Console.ReadLine();
+                    Console.WriteLine("Do You Wanna Play Again?? y/n");
+                    string loop = Console.ReadLine();
+                    if (loop == "y")
+                    {
+                        playAgain = true;
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+                        playAgain = false;
+                    }
+                }
+
+
+                else if (cpuScore > playerScore)
+                {
+                    Console.WriteLine("You Lose");
+                    Console.ReadLine();
+                    Console.WriteLine("Do You Wanna Play Again?? y/n");
+                    string loop = Console.ReadLine();
+                    if (loop == "y")
+                    {
+                        playAgain = true;
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+
+                    }
+                }
+            }
+        }
+    }
+}
