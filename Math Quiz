@@ -1,0 +1,61 @@
+using System;
+
+namespace MathsQuiz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        start:
+            Console.WriteLine("Maths Game");
+            RandomNumGen();
+            Console.WriteLine("-------------------------");
+            RandomNumGen();
+            Console.WriteLine("-------------------------");
+            RandomNumGen();
+            Console.WriteLine("-------------------------");
+            RandomNumGen();
+            Console.WriteLine("-------------------------");
+            RandomNumGen();
+            Console.WriteLine("-------------------------");
+
+            Console.WriteLine("Play Again? \nY/N");
+            string answer = Console.ReadLine();
+            if (answer == "y" || answer == "Y" || answer == "yes" || answer == "YES")
+            {
+                goto start;
+            }
+            else if (answer == "n" || answer == "N" || answer == "NO" || answer == "no")
+            {
+                Console.WriteLine("Thanks For Playing");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Command");
+                Console.WriteLine("Booted");
+            }
+        }
+
+        static void RandomNumGen()
+        {
+            Random RNG = new Random();
+            int number = RNG.Next(1, 20);
+            int number2 = RNG.Next(1, 20);
+            int userAnswer;
+            int answer = number + number2;
+
+            Console.WriteLine(number + " + " + number2 + " = ");
+            userAnswer = Convert.ToInt32(Console.ReadLine());
+
+            if (userAnswer == number + number2)
+            {
+                Console.WriteLine("Correct");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect");
+                Console.WriteLine("The Answer Was: " + answer);
+            }
+        }
+    }
+}
