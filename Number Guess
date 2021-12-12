@@ -4,37 +4,89 @@ namespace Number_Guess
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+    
+    static void Main(string[] args)
+        {       
+                //UPDATE
+        Console.WriteLine("Number Guess Game");
+        
+                Random random = new Random();
+                bool playAgain = true;
+                int min = 0;
+                int max = 100;
+                int guess;
+                int num;
+                int tries;
 
-            start:
-            int number1;
-            Random numGuess = new Random();
-            int RNG = numGuess.Next(1, 10);
+                while (playAgain == true)
+                {
+                    guess = 0;
+                    num = random.Next(min, max);
+                    tries = 0;
 
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Number Guess");
-            Console.WriteLine("Try Guess a number between 1 to 10");
+                    Console.WriteLine("Please Guess a Number Between 1 and 100: ");
+                    while (guess != num)
+                    {
+                        guess = Convert.ToInt32(Console.ReadLine());
+                        if (guess < num)
+                        {
+                            Console.WriteLine("Guess is Higher");
+                        }
+                        else if (guess > num)
+                        {
+                            Console.WriteLine("Guess is Lower");
+                        }
+                        tries++;
+                    }
+                    Console.WriteLine("Correct");
 
-            number1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Random Number: " + RNG + "\n");
+                    Console.WriteLine("The Computer Chose: " + num);
+                    Console.WriteLine("It took you " + tries + " Tries");
 
-
-            if( number1 == RNG)
-            {
-                Console.WriteLine("Perfect Match\n");
-                goto start;
-            }
-            else if(number1 != RNG)
-            {
-                Console.WriteLine("Unlucky\n");
-                goto start;
-            }
-            else
-            {
-                Console.WriteLine("Please Use A number Between 1 and 10\n");
-                goto start;
-            }
+                    Console.WriteLine("Do you wanna play again: Y/N");
+                    string answer = Console.ReadLine();
+                    if (answer == "y" || answer == "Y")
+                    {
+                        playAgain = true;
+                    }
+                    else if (answer == "n" || answer == "N")
+                    {
+                        playAgain = false;
+                    }
+                }
         }
     }
 }
+
+//      Older Simpler Version
+// void Main(string[] args)
+//        {
+//
+//            start:
+//            int number1;
+//            Random numGuess = new Random();
+//            int RNG = numGuess.Next(1, 10);
+
+//            Console.WriteLine("Hello World!");
+//            Console.WriteLine("Number Guess");
+//            Console.WriteLine("Try Guess a number between 1 to 10");
+
+//            number1 = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine("Random Number: " + RNG + "\n");
+
+
+//            if( number1 == RNG)
+//            {
+//                Console.WriteLine("Perfect Match\n");
+//                goto start;
+//            }
+//            else if(number1 != RNG)
+//           {
+//                Console.WriteLine("Unlucky\n");
+//                goto start;
+//            }
+//            else
+//            {
+//                Console.WriteLine("Please Use A number Between 1 and 10\n");
+//                goto start;
+//            }
